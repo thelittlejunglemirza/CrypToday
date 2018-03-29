@@ -1,0 +1,2 @@
+# CrypToday
+Cryptocurrency news app
