@@ -2,8 +2,8 @@ import React from 'react';
 import GetLoc from './GetLoc';
 import Graphs from './Graphs';
 import TrackLoc from './TrackLoc';
-import ProductView from './ProductView';
-import WeeklyToDo from './WeeklyToDo';
+import Rates from './Rates';
+import News from './News';
 import MonthlyToDo from './MonthlyToDo';
 
 import { Platform, Text, View, StyleSheet, TouchableHighlight, Image, TextInput, ScrollView } from 'react-native';
@@ -53,13 +53,13 @@ class App extends React.Component {
     {
         one_style = styles.tabItem_active
         one_font = styles.tabText_active
-        title = <WeeklyToDo/>
+        title = <News/>
     }
     else if (this.state.tab === 0)
     {
       zero_style = styles.tabItem_active
       zero_font = styles.tabText_active
-      title = <ProductView/>
+      title = <Rates/>
     }
     return(
       <View style={{flex: 1}}>
@@ -79,13 +79,13 @@ class App extends React.Component {
         </ScrollView>
         <View style={styles.tabs_cont}>
           <TouchableHighlight onPress={() => this.onPress(0)} style={zero_style}>
-            <Text style={zero_font}>News</Text>
+            <Text style={zero_font}>Rates</Text>
           </TouchableHighlight>
           <TouchableHighlight onPress={() => this.onPress(1)} style={one_style}>
-            <Text style={one_font}>Trending</Text>
+            <Text style={one_font}>News</Text>
           </TouchableHighlight>
           <TouchableHighlight onPress={() => this.onPress(2)} style={two_style}>
-            <Text style={two_font}>SafePlay</Text>
+            <Text style={two_font}>Trends</Text>
           </TouchableHighlight>
         </View>
       </View>

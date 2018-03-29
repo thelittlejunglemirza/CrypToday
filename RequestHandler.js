@@ -1,6 +1,6 @@
 var axios = require('axios')
 
-var root = "https://bizhacks.bbycastatic.ca/mobile-si/si/v3/products/search?query=laptop"
+var root = "https://api.coinmarketcap.com/v1/ticker/"
 
 export default class RequestHandler
 {
