@@ -4,7 +4,7 @@ import Graphs from './Graphs';
 import TrackLoc from './TrackLoc';
 import Rates from './Rates';
 import News from './News';
-import MonthlyToDo from './MonthlyToDo';
+import Trends from './Trends';
 
 import { Platform, Text, View, StyleSheet, TouchableHighlight, Image, TextInput, ScrollView } from 'react-native';
 
@@ -47,7 +47,7 @@ class App extends React.Component {
     {
         two_style = styles.tabItem_active
         two_font = styles.tabText_active
-        title = <MonthlyToDo/>
+        title = <Trends/>
     }
     else if (this.state.tab === 1)
     {

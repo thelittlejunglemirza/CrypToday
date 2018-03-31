@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 
-export default class WeeklyToDo extends React.Component {
+export default class Trends extends React.Component {
   state = {
     items: [],
     item: ''
@@ -19,7 +19,7 @@ export default class WeeklyToDo extends React.Component {
 
   constructor() {
     super();
-    AsyncStorage.getItem('WeeklyItems')
+    AsyncStorage.getItem('MonthlyItems')
       .then(itemsJSON => {
         if(itemsJSON) {
           this.setState({
@@ -44,7 +44,7 @@ export default class WeeklyToDo extends React.Component {
   }
 
   save = (arr) => {
-    AsyncStorage.setItem('WeeklyItems', JSON.stringify(arr))
+    AsyncStorage.setItem('MonthlyItems', JSON.stringify(arr))
   }
 
   renderRow = (rowData, sectionID, rowID) => {
@@ -70,7 +70,7 @@ export default class WeeklyToDo extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.titleContainer}  >
-          <Text style={styles.title}>This Week's Goals</Text>
+          <Text style={styles.title}>This Month's Goals</Text>
         </View>
         <TextInput
           style={styles.textInput}
