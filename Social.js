@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 
-export default class Trends extends React.Component {
+export default class Social extends React.Component {
   state = {
     items: [],
     item: ''

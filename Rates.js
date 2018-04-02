@@ -10,15 +10,8 @@ import {
   Image,
   FlatList
 } from 'react-native';
+import { List, ListItem } from 'react-native-elements';
 import RequestHandler from './RequestHandler.js';
-
-// class Coin extends React.Component {
-//   render(){
-//     return (
-//       <View
-//     )
-//   }
-// }
 
 class RateList extends React.Component {
 
@@ -26,9 +19,9 @@ class RateList extends React.Component {
     super();
   }
 
-  // renderSeparator() {
-  // return <View style={styles.separator} />
-  // }
+  renderSeparator() {
+  return <View style={styles.separator} />
+  }
 
   renderItem(data) {
     let { item, index } = data;
@@ -47,11 +40,16 @@ class RateList extends React.Component {
 
   render(){
     return (
+    <List
+      containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}
+    >
       <FlatList
-        keyExtractor={this._keyExtractor}
         data={this.props.list}
         renderItem={this.renderItem.bind(this)}
+        containerStyle={{ borderBottomWidth: 0 }}
+        ItemSeparatorComponent={this.renderSeparator}
       />
+    </List>
     );
   }
 }
@@ -76,6 +74,7 @@ export default class Rates extends React.Component {
       var arr = []
       for(let o of res){
         let obj = {
+            'key': o['id'],
             'name': o['name'],
             'rank': o['rank'],
             'price': o['price_usd'],
@@ -87,10 +86,6 @@ export default class Rates extends React.Component {
       this.setState({
         obj: arr,
       })
-      //console.log(this.state.obj);
-      console.log(Array.isArray(this.state.obj))
-      console.log('=============== here ============')
-      console.log(this.state.obj)
     }.bind(this)).catch(function(e){
       console.log('error message')
       console.log(e);
@@ -115,7 +110,6 @@ const styles = StyleSheet.create({
   },
   itemBlock: {
     flexDirection: 'row',
-    paddingBottom: 10,
   },
   itemImage: {
     width: 50,
@@ -137,10 +131,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "red",
   },
-  productName: {
-    fontFamily:'AppleSDGothicNeo-Bold',
-    fontSize:22,
-  },
   price: {
     fontFamily:'AppleSDGothicNeo-Bold',
     fontSize:20,
@@ -153,13 +143,6 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10
   },
-  item: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderColor: '#eaeaea',
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
   itemText: {
     flex: 1,
   },
@@ -168,8 +151,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#eaeaea'
   },
   separator: {
-  height: 0.5,
-  width: "80%",
+  height: 1,
+  width: "100%",
   alignSelf: 'center',
   backgroundColor: "#555"
   }

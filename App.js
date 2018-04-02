@@ -1,10 +1,7 @@
 import React from 'react';
-import GetLoc from './GetLoc';
-import Graphs from './Graphs';
-import TrackLoc from './TrackLoc';
 import Rates from './Rates';
 import News from './News';
-import Trends from './Trends';
+import Social from './Social';
 
 import { Platform, Text, View, StyleSheet, TouchableHighlight, Image, TextInput, ScrollView } from 'react-native';
 
@@ -47,7 +44,7 @@ class App extends React.Component {
     {
         two_style = styles.tabItem_active
         two_font = styles.tabText_active
-        title = <Trends/>
+        title = <Social/>
     }
     else if (this.state.tab === 1)
     {
@@ -85,7 +82,7 @@ class App extends React.Component {
             <Text style={one_font}>News</Text>
           </TouchableHighlight>
           <TouchableHighlight onPress={() => this.onPress(2)} style={two_style}>
-            <Text style={two_font}>Trends</Text>
+            <Text style={two_font}>Social</Text>
           </TouchableHighlight>
         </View>
       </View>
